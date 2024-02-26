@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
     <div class="container">
-
         <div class="left-column">
             <h2>Entries</h2>
             {% if entries %}
@@ -38,13 +37,13 @@
 
             <dl>
                 <dt>Name:</dt>
-                <dd><input type="text" size="30" name="name"></dd>
+                <dd><input type="text" size="30" name="name" required></dd>
                 <dt>Email:</dt>
-                <dd><input type="text" size="30" name="email"></dd>
+                <dd><input type="text" size="30" name="email" required></dd>
                 <dt>Phone Number:</dt>
-                <dd><input type="text" size="30" name="phone"></dd>
+                <dd><input type="text" size="30" name="phone" required></dd>
                 <dt>Address:</dt>
-                <dd><input type="text" size="30" name="address"></dd>
+                <dd><input type="text" size="30" name="address" required></dd>
             </dl>
             <button type="submit">Add</button>
         </form>
@@ -57,7 +56,7 @@
                     {% if request.args.get('sort_selected') == 'name' %}checked{% endif %}> Name
                 </label>
             </div>
-            <div class="radio-container">
+            <div class="radio-container" id="sort">
                 <label>
                     <input type="radio" name="sort_selected" value="email"
                     {% if request.args.get('sort_selected') == 'email' %}checked{% endif %}> Email
