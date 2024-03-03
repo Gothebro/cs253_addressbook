@@ -28,9 +28,6 @@
             <p><em>Unbelievable. No entries here so far.</em></p>
             {% endif %}
         </div>
-
-
-
         <div class="left-column">
         <h2>Add Contact</h2>
         <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
@@ -56,7 +53,7 @@
                     {% if request.args.get('sort_selected') == 'name' %}checked{% endif %}> Name
                 </label>
             </div>
-            <div class="radio-container" id="sort">
+            <div class="radio-container">
                 <label>
                     <input type="radio" name="sort_selected" value="email"
                     {% if request.args.get('sort_selected') == 'email' %}checked{% endif %}> Email
