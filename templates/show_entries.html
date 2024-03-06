@@ -20,6 +20,12 @@
                         <td>{{ entry.email }}</td>
                         <td>{{ entry.phone_number }}</td>
                         <td>{{ entry.address }}</td>
+                        <td>
+                            <form action='/delete' method="post">
+                                <input type="hidden" name="id" value="{{ entry.id }}">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -73,5 +79,6 @@
             </div>
             <button type="submit">Sort</button>
         </form>
+    </div>
     </div>
 {% endblock %}
