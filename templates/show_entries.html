@@ -20,6 +20,12 @@
                         <td>{{ entry.email }}</td>
                         <td>{{ entry.phone_number }}</td>
                         <td>{{ entry.address }}</td>
+                        <td>
+                            <form action='/delete' method="post">
+                                <input type="hidden" name="id" value="{{ entry.id }}">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -65,7 +71,14 @@
                     {% if request.args.get('sort_selected') == 'phone_number' %}checked{% endif %}> Phone Number
                 </label>
             </div>
+            <div class="radio-container">
+                <label>
+                    <input type="radio" name="sort_selected" value="address"
+                    {% if request.args.get('sort_selected') == 'address' %}checked{% endif %}> Address
+                </label>
+            </div>
             <button type="submit">Sort</button>
         </form>
+    </div>
     </div>
 {% endblock %}
