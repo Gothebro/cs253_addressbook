@@ -75,7 +75,7 @@ def show_entries():
 
     if sort_selected in ALLOWED_SORT_FIELDS:
         # Safely sorting based on predefined allowed fields
-        query = f'SELECT name, email, phone_number, address FROM entries ORDER BY {sort_selected}'
+        query = f'SELECT name, email, phone_number, address FROM entries ORDER BY LOWER({sort_selected})'
         entries = db.execute(query).fetchall()
     else:
         # If no sort is specified or it's not allowed, show all entries without sorting
